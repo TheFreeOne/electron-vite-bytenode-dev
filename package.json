@@ -1,7 +1,7 @@
 {
   "name": "electron-vite-bytenode-template",
   "version": "0.1.0",
-  "main": "dist-electron/main/index.js",
+  "main": "dist-electron/main/index.bytenode.js",
   "description": "Electron Vite Bytenode Template",
   "author": "Catalin <catalinbesleagadev@gmail.com>",
   "license": "MIT",
@@ -11,7 +11,7 @@
       "VITE_DEV_SERVER_URL": "http://127.0.0.1:7777/"
     }
   },
-  "type": "module",
+ 
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && electron-builder",
@@ -20,6 +20,8 @@
     "e2e": "playwright test"
   },
   "dependencies": {
+    "@vitejs/plugin-legacy": "^6.0.0",
+    "bytenode": "^1.5.6",
     "electron-updater": "^6.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
