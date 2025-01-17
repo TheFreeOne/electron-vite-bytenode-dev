@@ -17,8 +17,23 @@ async function main() {
   console.log("process.env.VITE_DEV_SERVER_URL ", process.env.VITE_DEV_SERVER_URL);
   if (isDev) {
     console.log("process.cwd() ", process.cwd());
+    // TODO replace process.cwd() with __dirname
     mainJscPath = path.join(process.cwd(), "./dist-electron/main/index.jsc");
     mainJsPath = path.join(process.cwd(), "./dist-electron/main/index.js");
+    preloadJscPath = path.join(
+      process.cwd(),
+      "./dist-electron/preload/index.jsc"
+    );
+    preloadJsPath = path.join(
+      process.cwd(),
+      "./dist-electron/preload/index.js"
+    );
+
+    console.log("main.jsc path dev", mainJscPath);
+  } else {
+    console.log("process.cwd() ", process.cwd());
+    mainJscPath = path.join(process.cwd(), "./resources/app/dist-electron/main/index.jsc"); 
+    mainJsPath = path.join(process.cwd(), "./resources/app/dist-electron/main/index.js");
     preloadJscPath = path.join(
       process.cwd(),
       "./dist-electron/preload/index.jsc"

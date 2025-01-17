@@ -1,5 +1,6 @@
+import { BrowserWindow } from "electron";
 import os from "node:os"
-export const setIcon = (mainWindow, publicFolder) => {
+export const setIcon = (mainWindow:BrowserWindow, publicFolder:string) => {
   switch (os.platform()) {
     case 'darwin':
       mainWindow.setIcon(`${publicFolder}/favicon.ico`);

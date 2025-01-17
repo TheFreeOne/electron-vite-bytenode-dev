@@ -14,7 +14,7 @@
  
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && electron-builder",
+    "build": "tsc && vite build &&  node_modules/.bin/electron electron-builder-config.js && electron-builder  --config electron-builder-config.js",
     "preview": "vite preview",
     "pree2e": "vite build --mode=test",
     "e2e": "playwright test"

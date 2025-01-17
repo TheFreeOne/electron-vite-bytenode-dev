@@ -44,17 +44,17 @@ export default defineConfig(({ command }) => {
       minify: "esbuild",
       cssCodeSplit: false,
       assetsInlineLimit: 1024 * 10,
-      rollupOptions: {
-        input: {
-          // index: join(process.cwd(), "src/pages/index/main.tsx"),
-          index: join(process.cwd(), "index.html"),
-        },
-        output: {
-          // inlineDynamicImports: true,
-        },
-        // build.rollupOptions.external
-        external: ["electron", "process"],
-      },
+      // rollupOptions: {
+      //   input: {
+      //     // index: join(process.cwd(), "src/pages/index/main.tsx"),
+      //     index: join(process.cwd(), "index.html"),
+      //   },
+      //   output: {
+      //     // inlineDynamicImports: true,
+      //   },
+      //   // build.rollupOptions.external
+      //   external: ["electron", "process"],
+      // },
       emptyOutDir: true,
     },
     resolve: {
@@ -106,11 +106,11 @@ export default defineConfig(({ command }) => {
       //   // See 👉 https://github.com/electron-vite/vite-plugin-electron-renderer
       //   renderer: {},
       // }),
-      legacy({
-        renderLegacyChunks: false,
-        modernPolyfills: true,
-        targets: ["defaults", "not IE 11", "chromeAndroid>=52, iOS>=13.1"],
-      }),
+      // legacy({
+      //   renderLegacyChunks: false,
+      //   modernPolyfills: true,
+      //   targets: ["defaults", "not IE 11", "chromeAndroid>=52, iOS>=13.1"],
+      // }),
       electron([
         {
           entry: join(process.cwd(), "electron/main/index.bytenode.ts"),
@@ -141,7 +141,7 @@ export default defineConfig(({ command }) => {
                 input: [
                   path.join(
                     process.cwd(),
-                    "electron/reload/preload.bytenode.ts"
+                    "electron/preload/index.bytenode.ts"
                   ),
                 ],
                 output: {
@@ -201,12 +201,12 @@ export default defineConfig(({ command }) => {
       ]),
       renderer(),
     ],
-    test: {
-      globals: true,
-      environment: "jsdom",
-      setupFiles: "src/setupTests",
-      mockReset: true,
-    },
+    // test: {
+    //   globals: true,
+    //   environment: "jsdom",
+    //   setupFiles: "src/setupTests",
+    //   mockReset: true,
+    // },
     server:
       process.env.VSCODE_DEBUG &&
       (() => {
